@@ -1,0 +1,14 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: wego-nightly-cluster-ubuntu-latest.us-east-1.eksctl.io-system
+  namespace: wego-system
+spec:
+  interval: 1m0s
+  path: ./.weave-gitops/clusters/wego-nightly-cluster-ubuntu-latest.us-east-1.eksctl.io/system
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: wego-auto-github-test-app-69n57hsd
+
