@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-nginx-6sipmi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-6sipmi
+  namespace: my-nginx-6sipmi
+  labels:
+    name: nginx-6sipmi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-6sipmi
+  template:
+    metadata:
+      namespace: my-nginx-6sipmi
+      labels:
+        name: nginx-6sipmi
+    spec:
+      containers:
+      - name: nginx-6sipmi
+        image: nginx
+        ports:
+        - containerPort: 80
+
