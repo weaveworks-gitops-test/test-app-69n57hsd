@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-nginx-ultba8
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ultba8
+  namespace: my-nginx-ultba8
+  labels:
+    name: nginx-ultba8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-ultba8
+  template:
+    metadata:
+      namespace: my-nginx-ultba8
+      labels:
+        name: nginx-ultba8
+    spec:
+      containers:
+      - name: nginx-ultba8
+        image: nginx
+        ports:
+        - containerPort: 80
+
